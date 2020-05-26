@@ -1,5 +1,7 @@
 # workflow
 
+## step 1: preparation for deploying
+
 we want to create .travis.yml file, telling travis how to run docker how to run an test
 now create ".travis.yml" file
 
@@ -27,4 +29,17 @@ script:
     - docker run bigdev2000/django-docker-cicd python manage.py test
 ```
 
-activate the repo in travis and push it to master branch
+activate the repo in travis then push it to master branch
+
+## step 2: deploy
+
+sign in to you aws account 
+searching service name "elastic beanstalk"
+this is use to run and manage web apps, appropriate when you are running only 1 container at the time
+
+"elastic beanstalk" >> create application >> fill the application name 
+application is like a workspace outsource, to actually have some target to deploy to we have to create environment
+
+go to that apllication and create environment >> web server environment >>  >> platform: docker >> apllication code: sample application >> create env... and keep waiting
+
+ืnow: we have env containe load balancer and our container, in our rnv there is url, being to replace by out app
