@@ -8,3 +8,15 @@ before_install:
 
 script:
     - docker run bigdev2000/django-docker-cicd python manage.py test
+
+deploy:
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "app-django"
+    env: "AppDjango-env"
+    bucket_name: "elasticbeanstalk-us-east-2-956710473097"
+    bucket_path: "app-django"
+    on: 
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
