@@ -5,7 +5,7 @@ services:
 
 before_install:
     - docker build -t bigdev2000/django-docker-cicd -f Dockerfile.dev .
-
+    
 script:
     - docker run bigdev2000/django-docker-cicd python manage.py test
 
@@ -20,3 +20,5 @@ deploy:
         branch: master
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
+    script: 
+        - python manage.py runserver
