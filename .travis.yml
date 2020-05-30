@@ -12,11 +12,12 @@ script:
 deploy:
     provider: elasticbeanstalk
     region: "us-east-2"
-    app: "app-django"
-    env: "AppDjango-env"
+    app: "docker"
+    env: "Docker-env"
     bucket_name: "elasticbeanstalk-us-east-2-956710473097"
-    bucket_path: "app-django"
+    bucket_path: "docker"
     on: 
         branch: master
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
+    script: bash ./deploy.sh 
